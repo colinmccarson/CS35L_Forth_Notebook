@@ -112,3 +112,20 @@ void delFuncs(funcList_t* list) {
         iterator = iterator->next;
     }
 }
+
+void dumpVars(varList_t* vars) {
+    var_t* var = vars->first;
+    while (var != NULL) {
+        printf("(%s,", var->name);
+        printf(" %d)\n", var->val);
+        var = var->next;
+    }
+}
+
+void dumpFunc(funcList_t* list) {
+    func_t* func = list->first;
+    while (func != NULL) {
+        printf(": %s %s\n", func->name, func->location);
+        func = func->next;
+    }
+}

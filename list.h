@@ -45,4 +45,8 @@ void del(varList_t* list);
 
 void delFuncs(funcList_t* list);
 
+void dumpVars(varList_t* vars);
+
+void dumpFunc(funcList_t* list);
+
 #endif //FORTHINTERPRETER_LIST_H

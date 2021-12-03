@@ -4,13 +4,19 @@
 #include<stdio.h>
 #include<string.h>
 
-const char* const keyWords[] = {".", "EMIT", "WORD", "VARIABLE", "!", "@", "IF", "ELSE", "THEN", "+",
+const char* const keyWords[] = { ".", "EMIT", "WORD", "VARIABLE", "!", "@", "IF", "ELSE", "THEN", "+",
                                 "-", ">", ">=", "<", "<=", "==", "!=", "WHILE", "ENDWHILE", ";",
-                                ":", "DUP", "SWAP", "OVER", "DEPTH"};
-void (* const funptrs[])(context_t*) = {&print, &printAscii, &getInput, &createVar, &storeAt, &fetch, &conditional,
+                                ":", "DUP", "SWAP", "OVER", "DEPTH" ,
+                                "POP" };
+void (* const funptrs[])(context_t*) = { &print, &printAscii, &getInput, &createVar, &storeAt, &fetch, &conditional,
                                  &condElse, &then, &addition, &subtraction, &greaterThan, &greaterEqualThan, &lessThan, &lessEqualThan,
-                                 &equals, &notEquals, &whileLoop, &endWhile, &endUserDefinedWord, &createUserDefinedWord, &duplicate, &swap, &over, &depth};
-const int numKeyWords = 25;
+                                 &equals, &notEquals, &whileLoop, &endWhile, &endUserDefinedWord, &createUserDefinedWord, &duplicate, &swap, &over, &depth,
+                                 &pop };
+const int numKeyWords = 26;
+
+void pop(context_t* context) { //POP
+    popLong(context->stack);
+}
 
 void print(context_t *context) { //.
     long int x = popLong(context->stack);

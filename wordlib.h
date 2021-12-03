@@ -84,4 +84,6 @@ void over(context_t *context);
 
 void depth(context_t* context);
 
+void pop(context_t* context);
+
 #endif //FORTHINTERPRETER_WORDLIB_H

@@ -133,3 +133,13 @@ void clearContext(context_t* context){
     del(context->globals);
     delFuncs(context->customWords);
 }
+
+void dumpContext(context_t* context) {
+    printf("\n__CONTEXT__\n");
+    printf("__DATA__\n");
+    dumpStack(context->stack);
+    printf("__VARS__\n");
+    dumpVars(context->globals);
+    printf("__USERDEFINED__\n");
+    dumpFunc(context->customWords);
+}

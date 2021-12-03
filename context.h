@@ -28,5 +28,6 @@ void contextDestructor(context_t* context);
 void clearContext(context_t* context);
 void setProgram(char* program, context_t* context);
 void clearProgram(context_t* context);
+void dumpContext(context_t* context);
 
 #endif //FORTHINTERPRETER_CONTEXT_H

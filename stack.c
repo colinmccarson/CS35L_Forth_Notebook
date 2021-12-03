@@ -63,3 +63,11 @@ void pushElement(stackElement_t* element, stack_t* stack){
     stack->top = new;
     (stack->size)++;
 }
+
+void dumpStack(stack_t* stack) {
+    stackElement_t* element = stack->top;
+    while (element != NULL) {
+        printf("%d\n", element->data.val);
+        element = element->next;
+    }
+}

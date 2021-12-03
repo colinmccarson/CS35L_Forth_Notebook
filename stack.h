@@ -30,7 +30,7 @@ long int popLong(stack_t* stack);
 void pushString(char* data, stack_t* stack);
 char* popString(stack_t* stack);
 void pushElement(stackElement_t* element, stack_t* stack);
-
+void dumpStack(stack_t* stack);
 
 
 #endif //FORTHINTERPRETER_STACK_H
