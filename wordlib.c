@@ -26,11 +26,6 @@ void printAscii(context_t *context) { //EMIT
     printf("%s", str);
 }
 
-void printAscii(context_t *context) { //EMIT
-    long int x = popLong(context->stack) % 0x100; //printable range
-    printf("%c", x);
-}
-
 void getInput(context_t *context) { //WORD
     long int x;
     scanf("%ld", &x); //Need to figure out how to handle conversion errors
