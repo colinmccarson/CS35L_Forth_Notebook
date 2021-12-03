@@ -18,9 +18,12 @@ void pop(context_t* context) { //POP
     popLong(context->stack);
 }
 
-void print(context_t *context) { //.
-    long int x = popLong(context->stack);
-    printf("%ld", x);
+void printAscii(context_t *context) { //EMIT
+    long int x = popLong(context->stack) % 0x100; //printable range
+    char c = (char) x;
+    char str[2] = {c, 0};
+    //printf("%c", x);
+    printf("%s", str);
 }
 
 void printAscii(context_t *context) { //EMIT
