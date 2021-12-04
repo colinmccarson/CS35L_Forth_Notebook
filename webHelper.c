@@ -3,6 +3,7 @@
 #include "context.h"
 #include <stdlib.h>
 #include "list.h"
+#include <string.h>
 
 void setContext(char* info, context_t* context) {
     size_t mode = 3; //0=DATA, 1=VARS, 2=USERDEFINED, 3=PROGRAM

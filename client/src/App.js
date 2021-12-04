@@ -15,7 +15,10 @@ class Page extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      comp: Array([{code: "", output: ""}])
+      comp: Array([{code: "", output: ""}]),
+      stack: "",
+      vars: "",
+      userdef: ""
     }
     //console.log(this.state.comp.type);
   }
@@ -62,16 +65,18 @@ class Page extends React.Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'
       },
-      body: JSON.stringify({"code": this.state.comp[index].code})
+      body: JSON.stringify({"code": this.state.comp[index].code, "stack": this.state.stack,
+      "vars": this.state.vars, "userdef": this.state.userdef})
     })
         .then(response => response.json())
         .then(data => {
-          //console.log(data.output)
-          //this.state.output = data.output;
-          //this.state.comp[index].output = data.output
+          let dstack = data.stack === undefined ? "" : data.stack;
+          let dvars = data.vars === undefined ? "" : data.vars;
+          let duserdef = data.userdef === undefined ? "" : data.userdef;
           let newArr = [...this.state.comp];
           newArr[index].output = data.output;
-          this.setState({comp: newArr});
+          this.setState({comp: newArr, stack: dstack, vars: dvars, userdef: duserdef });
+          console.log(JSON.stringify(this.state));
         })
         .catch(error => console.log(error));
   }
