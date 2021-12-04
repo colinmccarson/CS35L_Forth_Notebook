@@ -30,3 +30,5 @@ A forth word is any whitespace delimited stream of characters. Integers (e.g. -5
 
 
 Optionally, FORTH and the interpreter functionality can be explored through running the forth interpreter in /cmake-build-wsl on (most) linux machines. This interpreter is running in shell-mode (originally developed for dynamic testing/debugging of the interpreter).
+ 
+ A note about this repository: Much of the development was done prior to any posting, due to the nature of our group throughout the quarter (poor communication, eventually dwindled etc). The share of commits do not necessarily reflect participation between myself and Bryan.
